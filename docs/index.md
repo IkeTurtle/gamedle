@@ -3,12 +3,8 @@ title: Home
 nav_order: 0
 ---
 
-{: .attention }
-> Any text enclosed by `[ ]` are placeholders, including the opening and closing brackets.
->
-> You may delete this `attention` box.
 
-# [Gamedle]
+# Gamedle
 
 The app is aimed at users who want to have a challenging, but easily accessible hub
 for web games where problem solving and solid estimating are the focus.
@@ -18,7 +14,7 @@ for web games where problem solving and solid estimating are the focus.
 ### [Quang Nguyen]
 
 About
-: Some info about Jane
+: Some info about Quang
 
 Matr.-Nr.
 : 1234567
@@ -26,7 +22,7 @@ Matr.-Nr.
 ### [Eike Gebing]
 
 About
-: Some info about Joe
+: 27 years old student at HWR in his 8th semester.
 
 Matr.-Nr.
 : 1878752
