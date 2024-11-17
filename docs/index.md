@@ -8,13 +8,14 @@ nav_order: 0
 >
 > You may delete this `attention` box.
 
-# [Project Name]
+# [Gamedle]
 
-[Project description]
+The app is aimed at users who want to have a challenging, but easily accessible hub
+for web games where problem solving and solid estimating are the focus.
 
 ## Team members
 
-### [Jane Dane]
+### [Quang Nguyen]
 
 About
 : Some info about Jane
@@ -22,13 +23,13 @@ About
 Matr.-Nr.
 : 1234567
 
-### [Joe Doe]
+### [Eike Gebing]
 
 About
 : Some info about Joe
 
 Matr.-Nr.
-: 1234567
+: 1878752
 
 ## Eidesstattliche Erklärung
 
