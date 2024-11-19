@@ -17,6 +17,6 @@ nav_order: 2
 {: toc }
 </details>
 
-![First Data Model](gamedle/assets/images/Data_Structure_1.png)
+![First Data Model](../assets/images/Data_Structure_1)
 
 [Visualize and describe the data model(s) of your application. This description should match the actual implementation.]
