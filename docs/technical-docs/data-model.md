@@ -17,6 +17,6 @@ nav_order: 2
 {: toc }
 </details>
 
-![First Data Model](assets/images/Data_Structure_1)
+![First Data Model](assets/images/Data_Structure_1.png)
 
 [Visualize and describe the data model(s) of your application. This description should match the actual implementation.]
