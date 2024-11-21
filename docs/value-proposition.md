@@ -29,7 +29,17 @@ Most solutions to this problems also require an unwanted sign-up process that fi
 
 ## Our solution
 
-[Describe why and how your app solves the stated problem. Don't over-promise: the description should match what your app actually delivers.]
+Gamedle offers people that are looking for a quick but engaging challenge a hub for a number of games (TBD) that combine accessibility, variety and difficulty. 
+
+We offer the user a platform where he can compare himself conveniently with desired competitors without the need of a direct sign-up to our side.
+
+<details open markdown="block">
+{: .text-delta }
+<summary>List of our current games</summary>
+- Game 1
+- Game 2
+- Game 3
+</details>
 
 ## Target user
 
