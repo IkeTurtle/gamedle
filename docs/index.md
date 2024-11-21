@@ -20,7 +20,7 @@ Matr.-Nr.
 : 1878817
 
 ### Eike Gebing
-![Eike](..gamedle\docs\assets\images\e.gebing.jpg)
+![Eike](gamedle\docs\assets\images\e.gebing.jpg)
 About
 : 27 year old student at HWR in his 8th semester.
 
