@@ -4,7 +4,7 @@ nav_order: 0
 ---
 
 
-# Gamedle
+## Gamedle
 
 The app is aimed at users who want to have a challenging, but easily accessible hub
 for web games where problem solving and solid estimating are the focus.
@@ -22,7 +22,7 @@ Matr.-Nr.
 ### [Eike Gebing]
 
 About
-: 27 years old student at HWR in his 8th semester.
+: 27 year old student at HWR in his 8th semester.
 
 Matr.-Nr.
 : 1878752
