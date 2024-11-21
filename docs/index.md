@@ -11,15 +11,15 @@ for web games where problem solving and solid estimating are the focus.
 
 ## Team members
 
-### [Quang Nguyen]
+### Quang Anh Nguyen
 
 About
-: Some info about Quang
+: 23 year old student at HWR in his 8th semester.
 
 Matr.-Nr.
-: 1234567
+: 1878817
 
-### [Eike Gebing]
+### Eike Gebing
 
 About
 : 27 year old student at HWR in his 8th semester.
