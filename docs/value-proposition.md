@@ -41,6 +41,8 @@ We offer the user a platform where he can compare himself conveniently with desi
 - Game 2 (https://costcodle.com/)
   Our second game would be a version of costcodle working with similar GameSets to our first game but with a slightly altered UI. Also we would like to gather sample data from German retailers to differentiate us from the costcodle game
 
+  Depending on how far we come we might decide to add or remove from these current plans.
+
 </details>
 
 ## Target user

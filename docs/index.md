@@ -19,6 +19,9 @@ About
 Matr.-Nr.
 : 1878817
 
+Responsible for:
+data modeling & more to be defined
+
 ### Eike Gebing
 
 
@@ -27,6 +30,9 @@ About
 
 Matr.-Nr.
 : 1878752
+
+Responsible for:
+value proposition, mockup & more to be defined
 
 ## Eidesstattliche Erklärung
 
