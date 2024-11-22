@@ -46,20 +46,22 @@ We offer the user a platform where he can compare himself conveniently with desi
 The scope for our target users is quite broad. In general any person looking to kill some time in their daily routine is a possible user of Gamedle. Still we have designed some personas to more accurately describe some possible users.
 
 <details open markdown="block">
-{: .text-delta }
+
 <summary>Persona 1</summary>
-![Persona 1p1]
-![Persona 1p2]
-![Persona 1p3]
+<img src="assets/images/Persona1/Persona1_page-0001.jpg">
+<img src="assets/images/Persona1/Persona1_page-0002.jpg">
+<img src="assets/images/Persona1/Persona1_page-0003.jpg">
 </details>
 
 <details open markdown="block">
-{: .text-delta }
+
 <summary>Persona 2</summary>
-![Persona 2p1]
-![Persona 2p2]
-![Persona 2p3]
+<img src="assets/images/Persona2/Persona2_page-0001.jpg">
+<img src="assets/images/Persona2/Persona2_page-0002.jpg">
+<img src="assets/images/Persona2/Persona2_page-0003.jpg">
 </details>
+
+
 
 ## Customer journey
 

@@ -21,7 +21,7 @@ Matr.-Nr.
 
 ### Eike Gebing
 
-![Eike_Pic](../assets/images/e.gebing.png)
+<img src="assets/images/e.gebing.png">
 
 About
 : 27 year old student at HWR in his 8th semester.
