@@ -36,9 +36,9 @@ We offer the user a platform where he can compare himself conveniently with desi
 <details open markdown="block">
 {: .text-delta }
 <summary>List of our current games</summary>
-- Game 1
-- Game 2
-- Game 3
+- Game 1 (https://www.chronophoto.app/game.html)
+- Game 2 (https://costcodle.com/)
+- Game 3 (Similar games to the ones mentioned above. With a different twist. Guessing apartment, art prices etc.)
 </details>
 
 ## Target user
