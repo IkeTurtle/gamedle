@@ -19,8 +19,7 @@ Quang Anh Nguyen
 
 ![First Data Model](../assets/images/datamodel_1.png)
 
-The database should include three tables for managing the data: 
-**GuessingObject, GameSet, and Score**
+The database should include three tables for managing the data: <br> **GuessingObject, GameSet, Score**
 
 Table: `GuessingObject`
 
