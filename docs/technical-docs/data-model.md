@@ -17,7 +17,7 @@ Quang Anh Nguyen
 {: toc }
 </details>
 
-![First Data Model](../assets/images/datamodel_1)
+![First Data Model](../assets/images/datamodel_1.png)
 
 The database should include three tables for managing the data: 
 **GuessingObject, GameSet, and Score**
