@@ -45,8 +45,8 @@ The GameSet table contains 10 items from the GuessingObject table, as each game 
 | `object_1` | Integer | foreign key → GuessingObject.id <br> guessing object one |
 | `object_2` | Integer | foreign key → GuessingObject.id <br> guessing object two |
 | ... |
-| `object_3` | Integer | foreign key → GuessingObject.id <br> guessing object nine |
-| `object_4` | Integer | foreign key → GuessingObject.id <br> guessing object ten |
+| `object_9` | Integer | foreign key → GuessingObject.id <br> guessing object nine |
+| `object_10` | Integer | foreign key → GuessingObject.id <br> guessing object ten |
 
 Table: `Score`
 
