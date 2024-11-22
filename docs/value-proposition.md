@@ -5,7 +5,7 @@ nav_order: 1
 
 
 {: .label }
-[Eike Gebing]
+Eike Gebing
 
 {: .no_toc }
 # Value proposition
