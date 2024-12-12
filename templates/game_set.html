@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSet</title>
+
+    <!-- Verbindung mitt der CSS-Datei -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Anzeige von question -->
+        <h1>{{ guessing_object['question'] }}</h1>
+        
+        <!-- Anzeige von pictur -->
+        <img src="{{ url_for('static', filename=guessing_object['picture']) }}" 
+             alt="Image for {{ guessing_object['question'] }}">
+    </div>
+</body>
+</html>
