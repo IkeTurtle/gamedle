@@ -5,7 +5,7 @@ nav_order: 1
 
 
 {: .label }
-[Eike Gebing]
+Eike Gebing
 
 {: .no_toc }
 # Value proposition
@@ -36,9 +36,9 @@ We offer the user a platform where he can compare himself conveniently with desi
 <details open markdown="block">
 {: .text-delta }
 <summary>List of our current games</summary>
-- Game 1 (https://www.chronophoto.app/game.html)
+- Game 1 (https://www.chronophoto.app/game.html) <br>
   Our first web game would be similar to "chronophoto", offering different GameSets, so we can follow a data model for multiple games. GameSets could be finding pictures like in chronophoto, guessing the prices of depicted apartments or artworks and further ideas we find
-- Game 2 (https://costcodle.com/)
+- Game 2 (https://costcodle.com/) <br>
   Our second game would be a version of costcodle working with similar GameSets to our first game but with a slightly altered UI. Also we would like to gather sample data from German retailers to differentiate us from the costcodle game
 
   Depending on how far we come we might decide to add or remove from these current plans.
