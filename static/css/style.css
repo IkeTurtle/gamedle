@@ -1,0 +1,12 @@
+/* Begrenzung der Breite */
+.container {
+    max-width: 500px;
+    margin: auto; 
+    text-align: center; 
+}
+
+/* Anpassung der Bildgröße */
+img {
+    max-width: 100%;
+    height: auto;
+}
