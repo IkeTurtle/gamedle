@@ -53,7 +53,13 @@ The scope for our target users is quite broad. In general any person looking to 
 
 <summary>Persona 1</summary>
 <img src="assets/images/Persona1/Persona1_page-0001.jpg">
+
+---
+
 <img src="assets/images/Persona1/Persona1_page-0002.jpg">
+
+---
+
 <img src="assets/images/Persona1/Persona1_page-0003.jpg">
 </details>
 
@@ -61,7 +67,13 @@ The scope for our target users is quite broad. In general any person looking to 
 
 <summary>Persona 2</summary>
 <img src="assets/images/Persona2/Persona2_page-0001.jpg">
+
+---
+
 <img src="assets/images/Persona2/Persona2_page-0002.jpg">
+
+---
+
 <img src="assets/images/Persona2/Persona2_page-0003.jpg">
 </details>
 
@@ -75,10 +87,20 @@ In order to better illustrate how we envision our app to be navigated we created
 
 <summary>Home Screen wireframes</summary>
 <img src="assets/images/Wireframes/Home Screen.png">
+
+---
+
 <img src="assets/images/Wireframes/Home Screen (Open Sidebars).png">
+
+</details>
 
 <details open markdown="block">
 
 <summary>Slide Game UI wireframes</summary>
 <img src="assets/images/Wireframes/Slide game UI.png">
+
+---
+
 <img src="assets/images/Wireframes/Slide Game UI Result.png">
+
+</details>
