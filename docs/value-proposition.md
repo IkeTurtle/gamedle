@@ -69,4 +69,16 @@ The scope for our target users is quite broad. In general any person looking to 
 
 ## Customer journey
 
-[Illustrate the customer journey, from the app's entry point to a completed task. You might want to show the customer journey as (schematic) screen flows.]
+In order to better illustrate how we envision our app to be navigated we created wireframes that depict the core features of gamedle.
+
+<details open markdown="block">
+
+<summary>Home Screen wireframes</summary>
+<img src="assets/images/Wireframes/Home Screen.png">
+<img src="assets/images/Wireframes/Home Screen (Open Sidebars).png">
+
+<details open markdown="block">
+
+<summary>Slide Game UI wireframes</summary>
+<img src="assets/images/Wireframes/Slide game UI.png">
+<img src="assets/images/Wireframes/Slide Game UI Result.png">
