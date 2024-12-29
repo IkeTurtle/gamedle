@@ -49,7 +49,7 @@ We offer the user a platform where he can compare himself conveniently with desi
 
 The scope for our target users is quite broad. In general any person looking to kill some time in their daily routine is a possible user of Gamedle. Still we have designed some personas to more accurately describe some possible users.
 
-<details open markdown="block">
+<details>
 
 <summary>Persona 1</summary>
 <img src="assets/images/Persona1/Persona1_page-0001.jpg">
@@ -63,7 +63,7 @@ The scope for our target users is quite broad. In general any person looking to 
 <img src="assets/images/Persona1/Persona1_page-0003.jpg">
 </details>
 
-<details open markdown="block">
+<details>
 
 <summary>Persona 2</summary>
 <img src="assets/images/Persona2/Persona2_page-0001.jpg">
@@ -83,7 +83,7 @@ The scope for our target users is quite broad. In general any person looking to 
 
 In order to better illustrate how we envision our app to be navigated we created wireframes that depict the core features of gamedle.
 
-<details open markdown="block">
+<details>
 
 <summary>Home Screen wireframes</summary>
 <img src="assets/images/Wireframes/Home Screen.png">
@@ -94,7 +94,7 @@ In order to better illustrate how we envision our app to be navigated we created
 
 </details>
 
-<details open markdown="block">
+<details>
 
 <summary>Slide Game UI wireframes</summary>
 <img src="assets/images/Wireframes/Slide game UI.png">
