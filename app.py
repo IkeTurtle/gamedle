@@ -12,8 +12,14 @@ app.cli.add_command(db.init_db)
 app.teardown_appcontext(db.close_db_con)
 
 @app.route('/')
-def index():
-    return 'Hello, World!'
+def home():
+    db_con = db.get_db_con()
+
+    # Abrufen aller GameSets aus der Datenbank
+    games = db_con.execute("SELECT id, name FROM GameSet").fetchall()
+
+    # Rendern des Templates und Übergabe der GameSets
+    return render_template('home.html', games=games)
 
 @app.route('/GameSet<int:game_id>/<int:round>')
 def game_set(game_id, round):
@@ -45,10 +51,22 @@ def game_set(game_id, round):
     # HTML-Template rendern
     return render_template("game_set.html", guessing_object=guessing_object, game_id=game_id, round=round)
 
- # Wenn /GameSet1 geöffnet wird, wird automatisch /GameSet1/1 geöffnet
 @app.route('/GameSet<int:game_id>')
 def game_set_start(game_id):
-    return redirect(url_for('game_set', game_id=game_id, round=1))
+    db_con = db.get_db_con()
+
+    game_set = db_con.execute(
+        "SELECT * FROM GameSet WHERE id = ?", (game_id,)
+    ).fetchone()
+
+    if not game_set:
+        return "GameSet not found", 404
+    
+    # Abrufen aller GameSets aus der Datenbank
+    games = db_con.execute("SELECT id, name FROM GameSet").fetchall()
+
+    # Rendern des Templates und Übergabe der GameSets
+    return render_template('game_set_play.html', games=games, game_id=game_id,  game_name=game_set['name'])
 
 @app.route('/insert/sample')
 def run_insert_sample():
