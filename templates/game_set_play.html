@@ -40,17 +40,11 @@
             <p>by Quang & Eike</p>
             <h2>GameSet: {{ game_name }}</h2>
 
+            <!-- Play Button -->
             <form action="{{ url_for('game_set', game_id=game_id, round=1) }}">
                 <button type="submit" class="play-button">PLAY</button>
             </form>
         </div> 
-
-        <!-- pLAY bUTTON -->
-        </div class= "play">
-            <form action="{{ url_for('game_set', game_id=game_id, round=1) }}">
-                <button type="submit" class="play-button">PLAY</button>
-            </form>
-        </div>
 
     </div>
 </body>

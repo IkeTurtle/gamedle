@@ -74,13 +74,6 @@ img {
 }
 
 
-.play {
-    width: 100%; 
-    display: flex; 
-    justify-content: center; 
-    margin-top: auto; 
-}
-
 .play-button {
     font-size: 25px;
     padding: 10px 20px;
