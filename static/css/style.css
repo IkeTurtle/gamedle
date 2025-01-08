@@ -10,3 +10,77 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.layout {
+    display: flex; /* Flexbox-Layout*/
+    height: 100vh; /* Layout passt sich der Bildschirmhöhe an */
+}
+
+/* Scrollbar */
+.games-menu {
+    width: 250px; 
+    background-color:lightgrey; 
+    border-right: 3px solid grey;
+    overflow-y: auto; /* Scrollbar, wenn die Liste zu lang ist */
+    padding: 10px;
+}
+
+.games-menu h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'DM Sans', sans-serif; 
+}
+
+
+.games-list {
+    max-height: calc(100vh - 50px); /* Menü passt sich an Bildschirmhöhe an */
+    overflow-y: auto; /* Scrollbar */
+}
+
+.game-item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: grey;
+    border: 1px solid darkgrey;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'DM Sans', sans-serif; 
+}
+
+.home {
+    flex-grow: 1;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif; 
+}
+
+.home h1 {
+    font-size: 100px; 
+    margin-bottom: 10px; 
+}
+
+.home p {
+    font-size: 50px; 
+    margin: 0;
+}
+
+.home h2 {
+    font-size: 60px; 
+    margin-bottom: 20px; 
+}
+
+
+.play-button {
+    font-size: 25px;
+    padding: 10px 20px;
+    color: white;
+    background-color: rgb(40, 165, 248);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
