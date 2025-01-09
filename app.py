@@ -53,7 +53,7 @@ def game_set(game_id, round):
         return "GuessingObject not found", 404
 
     # HTML-Template rendern
-    return render_template("game_set.html", guessing_object=guessing_object, game_id=game_id, round=round)
+    return render_template("game_set.html", guessing_object=guessing_object, game_id=game_id, round=round, game_name=game_set['name'])
 
 @app.route('/GameSet<int:game_id>')
 def game_set_start(game_id):
@@ -71,8 +71,3 @@ def game_set_start(game_id):
 
     # Rendern des Templates und Übergabe der GameSets
     return render_template('game_set_play.html', games=games, game_id=game_id,  game_name=game_set['name'])
-
-@app.route('/insert/sample')
-def run_insert_sample():
-    db.insert_sample()
-    return 'Database flushed and populated with some sample data.'
