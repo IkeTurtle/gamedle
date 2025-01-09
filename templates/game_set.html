@@ -43,20 +43,25 @@
             </div>
         </div>   
     </nav>
-    <div class="container">
+<div class="container h-100">
         <!-- Anzeige von question -->
-        
+    <div class="d-flex h-100 flex-column justify-content-between"> 
         <h1 class="row row-cols-12">{{ guessing_object['question'] }}</h1>
         
-        <!-- Anzeige von pictur -->
-        <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image">
-
-        <form>
-            <Label for="guess" class="form-label">Test</Label>
-            <input type="range" id="guess"  value="test" class="form-range">
-            <button class="btn btn-primary">Submit</button>
+        <!-- Anzeige von picture -->
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image">
+            </div>
+        </div>
+        <form >
+            <div class="vstack">       
+                <input type="range" id="guess"  value="test" class="form-range">
+                <button class="btn btn-primary">Submit</button>
+            </div>  
         </form>
-    </div>
+    </div>       
+</div>
     {{ bootstrap.load_js() }}
 </body>
 </html>
