@@ -25,6 +25,14 @@ def home():
     # Rendern des Templates und Übergabe der GameSets
     return render_template('home.html', games=games)
 
+@app.route('/games')
+def games():
+    db_con = db.get_db_con()
+
+
+    # Rendern des Templates und Übergabe der Game Selection
+    return render_template('game_select.html', games=games)
+
 @app.route('/GameSet<int:game_id>/<int:round>')
 def game_set(game_id, round):
     db_con = db.get_db_con()

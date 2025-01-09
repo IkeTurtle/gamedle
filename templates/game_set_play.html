@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamedle</title>
+    <style>
+    html, body {
+      height: 100%;
+    }
+    </style>
     {{ bootstrap.load_css() }}
 </head>
 <body style="padding:64px">
@@ -39,7 +44,7 @@
         <div class="container">           
             <h2>GameSet: {{ game_name }}</h2>
             <!-- Play Button -->       
-                <a class="btn btn-outline-primary" href="{{ url_for('game_set', game_id=game_id, round=1) }}">PLAY</button>           
+                <a class="btn btn-outline-primary" href="{{ url_for('game_set', game_id=game_id, round=1) }}">PLAY</a>           
         </div> 
     {{ bootstrap.load_js() }}
 </body>
