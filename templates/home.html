@@ -4,42 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamedle</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-    <!-- Import von Font "DM Sans" -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
+    {{ bootstrap.load_css() }}
 </head>
-<body>
-    <!-- Klasse: layout -->
-     <div class="layout">
-
-        <!-- Linke Leiste mit Gamesets -->
-        <!-- Klasse: games-menu -->
-        <div class="games-menu">
-            <h3>GameSets</h3>
-
-            <!-- Klasse: games-list -->
-            <div class="games-list">
-                {% for game in games %}
-                    <div class="game-item">
-                    <!-- Klasse: game-item -->
-
-                        <a href="{{ url_for('game_set_start', game_id=game['id']) }}">
-                            {{ game['name'] }}
-                        </a>
+<body style="padding:64px">
+<div class="container">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a href="../" class="navbar-brand">Gamedle</a>
+            <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Gamedle</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a href="../" class="nav-link active text-dark">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../GameSet1" class="nav-link text-dark">Game 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-dark">Game 2</a>
+                            </li>
+                        </ul>
                     </div>
             </div>
-                {% endfor %}
+        </div>   
+    </nav>
+    <div class="container">
+            <div class="row row-cols-1">
+                <div class="col-12">               
+                    <div class="card">
+                        <div class="card-body">
+                        Welcome to Gamedle made by Quang & Eike. 
+                        We hope you have fun with our project!
+                        </div>
+                    </div> 
+                </div>
+                <div class=col-8>                   
+                        <button class="btn btn-primary">Checkout Games</button>                   
+                </div>
+            </div>
         </div>
-    
+ </div>   
 
-        <!-- Klasse: home -->
-        <div class="home">
-            <h1>Welcome to Gamedle!</h1>
-            <p>by Quang & Eike</p>
-
-        </div> 
-    </div>
+    {{ bootstrap.load_js() }}
 </body>
 </html>

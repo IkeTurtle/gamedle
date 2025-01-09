@@ -4,18 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameSet</title>
-
-    <!-- Verbindung mitt der CSS-Datei -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {{ bootstrap.load_css() }}
 </head>
-<body>
+<body style="padding:64px">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a href="../" class="navbar-brand">Gamedle</a>
+            <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Gamedle</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a href="../" class="nav-link text-dark">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../GameSet1" class="nav-link active text-dark">Game 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-dark">Game 2</a>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </div>   
+    </nav>
     <div class="container">
         <!-- Anzeige von question -->
         <h1>{{ guessing_object['question'] }}</h1>
         
         <!-- Anzeige von pictur -->
-        <img src="{{ url_for('static', filename=guessing_object['picture']) }}" 
-             alt="Image for {{ guessing_object['question'] }}">
+        <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image">
+
+        <form>
+            <Label for="guess" class="form-label">Test</Label>
+            <input type="range" id="guess"  value="test" class="form-range">
+            <button class="btn btn-primary">Submit</button>
+        </form>
     </div>
+    {{ bootstrap.load_js() }}
 </body>
 </html>

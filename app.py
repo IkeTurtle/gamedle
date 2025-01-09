@@ -1,15 +1,19 @@
 import os
 from flask import Flask, render_template, redirect, url_for
+from flask_bootstrap import Bootstrap5
 import db
 
 app = Flask(__name__)
+bootstrap = Bootstrap5(app)
 
 app.config.from_mapping(
     SECRET_KEY='secret_key_just_for_dev_environment',
-    DATABASE=os.path.join(app.instance_path, 'GuessingObjects.sqlite')
+    DATABASE=os.path.join(app.instance_path, 'GuessingObjects.sqlite'),
+    BOOTSTRAP_BOOTSWATCH_THEME = 'minty'
 )
 app.cli.add_command(db.init_db)
 app.teardown_appcontext(db.close_db_con)
+
 
 @app.route('/')
 def home():
