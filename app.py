@@ -102,6 +102,7 @@ def game_set(game_id, round):
 
 @app.route('/GameSet<int:game_id>/score')
 
+
 def scorelist(game_id):
     db_con = db.get_db_con()
 
@@ -115,6 +116,7 @@ def scorelist(game_id):
 
     # Rendern des Templates und Übergabe der GameSets
     return render_template('game_score.html', games=games)
+
 
 @app.route('/GameSet<int:game_id>')
 def game_set_start(game_id):
