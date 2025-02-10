@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap5
 import db
 
@@ -33,7 +33,7 @@ def games():
     # Rendern des Templates und Übergabe der Game Selection
     return render_template('game_select.html')
 
-@app.route('/GameSet<int:game_id>/<int:round>')
+@app.route('/GameSet<int:game_id>/<int:round>',methods=['GET', 'POST'])
 def game_set(game_id, round):
     db_con = db.get_db_con()
 
@@ -60,8 +60,15 @@ def game_set(game_id, round):
     if not guessing_object:
         return "GuessingObject not found", 404
 
+    # https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request?utm_source=chatgpt.com
+    if request.method == "POST":
+        user_guess = request.form.get("guess", type=float)  
+        print(f"User input: {user_guess}")  
+
     # HTML-Template rendern
     return render_template("game_set.html", guessing_object=guessing_object, game_id=game_id, round=round, game_name=game_set['name'])
+
+
 
 @app.route('/GameSet<int:game_id>')
 def game_set_start(game_id):

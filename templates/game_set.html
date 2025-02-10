@@ -56,12 +56,39 @@
                 </div>
             </div>
         </div>
-        <form >
-            <div class="vstack">       
-                <input type="range" id="guess"  value="test" class="form-range">
-                <button class="btn btn-primary">Submit</button>
-            </div>  
+
+        
+        <!-- Skala https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range -->
+        <form action="{{ url_for('game_set', game_id=game_id, round=round) }}" method="post">
+            <div class="vstack">
+
+                <label for="guess">Your Answer: <span id="guessValue">{{ (guessing_object['scale_top'] + guessing_object['scale_bottom']) // 2 }}</span></label>
+
+                <input type="range" id="guess" name="guess" class="form-range"
+                    min="{{ guessing_object['scale_top'] }}" 
+                    max="{{ guessing_object['scale_bottom'] }}" 
+                    step="1" 
+
+                    oninput="updateValue(this.value)">
+
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+            </div>
         </form>
+
+        <!-- Dynamische ANzeige der Skala https://www.w3schools.com/howto/howto_js_rangeslider.asp?utm_source=chatgpt.com -->
+        <script>
+        
+            var slider = document.getElementById("guess");
+            var output = document.getElementById("guessValue");
+
+            output.innerHTML = slider.value;
+
+            slider.oninput = function() {
+             output.innerHTML = this.value;
+            }
+        </script>
+
     </div>       
 </div>
     {{ bootstrap.load_js() }}
