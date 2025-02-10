@@ -62,6 +62,7 @@
         <form action="{{ url_for('game_set', game_id=game_id, round=round) }}" method="post">
             <div class="vstack">
 
+                <label for="guess">Current Score: {{score}}</label>
                 <label for="guess">Your Answer: <span id="guessValue">{{ (guessing_object['scale_top'] + guessing_object['scale_bottom']) // 2 }}</span></label>
 
                 <input type="range" id="guess" name="guess" class="form-range"
