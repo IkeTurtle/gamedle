@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamedle</title>
+    <style>
+    html, body {
+      height: 100%;
+    }
+    </style>
+    {{ bootstrap.load_css() }}
+</head>
+<body style="padding:64px">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a href="../" class="navbar-brand">Gamedle</a>
+            <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Gamedle</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a href="../" class="nav-link active text-dark">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                 
+                                    {% for game in games %}                                  
+                                        <a href="{{ url_for('game_set_start', game_id=game['id']) }}" class="list-group-item list-group-item-action text-dark text-decoration-none mb-2">
+                                         {{ game['name'] }}
+                                        </a>                              
+                                    {% endfor %}
+                            </li>
+                            
+                        </ul>
+                    </div>
+            </div>
+        </div>   
+    </nav>
+<div class="container h-100">
+         <div class="d-flex flex-column align-items-center">
+                        <div class="border border-dark border-1 rounded-2">
+                            <div class="vstack gap-3 align-items-center">
+                            
+                                <div class="p-1 fw-bold">Current Highscores for GameSet 1</div>
+                                    
+                                        <table class="table w-100">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Score</th>
+                                                </tr>                                                
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Peter</td>
+                                                    <td>9012</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Lisa</td>
+                                                    <td>5733</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mark</td>
+                                                    <td>3031</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Manuel</td>
+                                                    <td>2012</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Jane</td>
+                                                    <td>1024</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    
+                                    
+                                    
+                                        <form>
+                                            <div class="hstack">
+                                            <label for="yourName" class="form-label">"Current Score" Enter Your Name</label>
+                                            <input type="text" id="yourName" class="form-control" value="Max Mustermann">
+                                            <button type="submit" class="btn btn-primary mt-3">Submit Score</button>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>                 
+                    </div>                      
+            
+ </div>   
+
+    {{ bootstrap.load_js() }}
+</body>
+</html>
