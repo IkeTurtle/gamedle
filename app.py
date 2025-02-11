@@ -63,6 +63,8 @@ def game_set(game_id, round):
         (object_id,)
     ).fetchone()
 
+
+
     if not guessing_object:
         return "GuessingObject not found", 404
     
@@ -88,11 +90,20 @@ def game_set(game_id, round):
         user_guess = request.form.get("guess", type=float)  
 
 
+        # Score-Berechnung, Quelle: ChatGPT
+        max = guessing_object['scale_bottom'] 
+        min = guessing_object['scale_top'] 
+        answer = guessing_object['value']
+
+        error = abs(user_guess - answer) / (max - min)
+        points = 1000 * (1- error) ** 2
+
         if session['current_round'] < 10:
 
             if user_guess is not None:
-                session['score'] += user_guess  # Wert addieren
-                session['current_round'] += 1   # Runde erhöhen
+
+                session['score'] += int(points)  
+                session['current_round'] += 1   
 
                 print(f"User input: {user_guess}")  
                 print(f"Score: { session['score']}")  
@@ -103,7 +114,7 @@ def game_set(game_id, round):
         #Weiterleitung zur Scoresliste
         if session['current_round'] == 10:
 
-            session['score'] += user_guess
+            session['score'] += int(points)
 
             print(f"User input: {user_guess}")  
             print(f"Score: { session['score']}")  
@@ -115,8 +126,6 @@ def game_set(game_id, round):
             return redirect(f"/GameSet{game_id}/score")
 
             
-        
-
     # HTML-Template rendern
     return render_template("game_set.html", guessing_object=guessing_object, game_id=game_id, game_name=game_set['name'], score=session['score'], round=session['current_round'])
 
