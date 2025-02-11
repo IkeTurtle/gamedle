@@ -75,7 +75,7 @@ def game_set(game_id, round):
         return redirect(f"/GameSet{game_id}/{session['current_round']}")
 
 
-    # https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request?utm_source=chatgpt.com
+    # https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request
     if request.method == "POST":
         user_guess = request.form.get("guess", type=float)  
 
