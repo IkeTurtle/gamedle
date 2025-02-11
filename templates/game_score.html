@@ -47,8 +47,9 @@
                         <div class="border border-dark border-1 rounded-2">
                             <div class="vstack gap-3 align-items-center">
                             
-                                <div class="p-1 fw-bold">Current Highscores for GameSet 1</div>
+                                <div class="p-1 fw-bold">Current Highscores for {{ game_set['name'] }}</div>
                                     
+                                    {% if score_data %}
                                         <table class="table w-100">
                                             <thead class="thead-dark">
                                                 <tr>
@@ -57,38 +58,32 @@
                                                 </tr>                                                
                                             </thead>
                                             <tbody>
+
+                                                 <!-- Schleife für Anzeige der Scores -->
+                                                {% for score in score_data %}
                                                 <tr>
-                                                    <td>Peter</td>
-                                                    <td>9012</td>
+                                                    <td>{{ score['username'] }}</td>
+                                                    <td>{{ score['points'] }}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Lisa</td>
-                                                    <td>5733</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Mark</td>
-                                                    <td>3031</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Manuel</td>
-                                                    <td>2012</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Jane</td>
-                                                    <td>1024</td>
-                                                </tr>
+                                                {% endfor %}
                                             </tbody>
+
                                         </table>
+                                    {% else %}
+                                         <p>No scores available for this game.</p>
+                                    {% endif %}
                                     
-                                    
-                                    
-                                        <form>
+                                    <!-- Überprüfung ob eine Session aktiv ist https://stackoverflow.com/questions/42013067/how-to-access-session-variables-in-jinja-2-flask-->
+                                        {% if session['score'] %}
+                                        <form method = "post">
                                             <div class="hstack">
-                                            <label for="yourName" class="form-label">"Current Score" Enter Your Name</label>
-                                            <input type="text" id="yourName" class="form-control" value="Max Mustermann">
+                                            <label for="yourName" class="form-label">Score: {{ final_score }}</label>
+                                            <input type="text" id="yourName" class="form-control" placeholder="Enter your Name" name="yourName" required>
                                             <button type="submit" class="btn btn-primary mt-3">Submit Score</button>
                                             </div>
                                         </form>
+                                        {% endif %}
+
                                         </div>
                                     </div>    
                                 </div>
