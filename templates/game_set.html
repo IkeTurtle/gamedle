@@ -72,7 +72,20 @@
 
                     oninput="updateValue(this.value)">
 
-                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#submitPopUp">Submit</button>
+                <div class="modal fade" data-bs-backdrop="static" id="submitPopUp">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header"><h1>Confirm guess</h1>
+                            
+                            </div>
+                            <div class="modal-body"><h4>Your Guess of <span id="modalGuessValue" style="font-weight: bold"></span> earned you X out of Y possible points!</h4></div>
+                            <div class="modal-footer">                          
+                                <button type="submit" class="btn btn-primary">Continue</button>                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </form>
@@ -82,11 +95,14 @@
         
             var slider = document.getElementById("guess");
             var output = document.getElementById("guessValue");
+            var modalGuess = document.getElementById("modalGuessValue");
 
             output.innerHTML = slider.value;
+            modalGuess.innerHTML = slider.value;
 
             slider.oninput = function() {
              output.innerHTML = this.value;
+             modalGuess.innerHTML =this.value;
             }
         </script>
 
