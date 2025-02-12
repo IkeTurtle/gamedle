@@ -25,7 +25,7 @@ def home():
     # Abrufen aller GameSets aus der Datenbank
     games = db_con.execute("SELECT id, name FROM GameSet").fetchall()
 
-    # Rendern des Templates und Übergabe der GameSets
+    # Rendern des Templates und Übergabe der GameSetss
 
     session.clear()
 
