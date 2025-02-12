@@ -4,18 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameSet</title>
-
-    <!-- Verbindung mitt der CSS-Datei -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+    html, body {
+      height: 100%;
+    }
+    </style>
+    {{ bootstrap.load_css() }}
 </head>
-<body>
-    <div class="container">
+<body style="padding:64px">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a href="../" class="navbar-brand">Gamedle</a>
+            <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="navbar">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Gamedle</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a href="../" class="nav-link text-dark">Home</a>
+                            </li>
+
+                             <li class="nav-item">
+                                 
+                                {% for game in games %}                                  
+                                    <a href="{{ url_for('game_set_start', game_id=game['id']) }}" class="list-group-item list-group-item-action text-dark text-decoration-none mb-2">
+                                    {{ game['name'] }}
+                                    </a>                              
+                                {% endfor %}
+                            </li>
+
+                        </ul>
+                    </div>
+            </div>
+        </div>   
+    </nav>
+<div class="container h-100">
         <!-- Anzeige von question -->
-        <h1>{{ guessing_object['question'] }}</h1>
+    <div class="d-flex h-100 flex-column justify-content-between items-align-center"> 
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <h1 class="row">{{ guessing_object['question'] }}</h1>
         
-        <!-- Anzeige von pictur -->
-        <img src="{{ url_for('static', filename=guessing_object['picture']) }}" 
-             alt="Image for {{ guessing_object['question'] }}">
-    </div>
+        <!-- Anzeige von picture -->
+            <div class="d-flex justify-content-center align-items-end">
+                <div class="col-md-9">
+                    <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+        <form >
+            <div class="vstack">       
+                <input type="range" id="guess"  value="test" class="form-range">
+                <button class="btn btn-primary">Submit</button>
+            </div>  
+        </form>
+    </div>       
+</div>
+    {{ bootstrap.load_js() }}
 </body>
 </html>

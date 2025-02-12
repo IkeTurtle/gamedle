@@ -1,15 +1,19 @@
 import os
 from flask import Flask, render_template, redirect, url_for
+from flask_bootstrap import Bootstrap5
 import db
 
 app = Flask(__name__)
+bootstrap = Bootstrap5(app)
 
 app.config.from_mapping(
     SECRET_KEY='secret_key_just_for_dev_environment',
-    DATABASE=os.path.join(app.instance_path, 'GuessingObjects.sqlite')
+    DATABASE=os.path.join(app.instance_path, 'GuessingObjects.sqlite'),
+    BOOTSTRAP_BOOTSWATCH_THEME = 'minty'
 )
 app.cli.add_command(db.init_db)
 app.teardown_appcontext(db.close_db_con)
+
 
 @app.route('/')
 def home():
@@ -20,6 +24,14 @@ def home():
 
     # Rendern des Templates und Übergabe der GameSets
     return render_template('home.html', games=games)
+
+@app.route('/games')
+def games():
+    db_con = db.get_db_con()
+
+
+    # Rendern des Templates und Übergabe der Game Selection
+    return render_template('game_select.html')
 
 @app.route('/GameSet<int:game_id>/<int:round>')
 def game_set(game_id, round):
@@ -49,7 +61,7 @@ def game_set(game_id, round):
         return "GuessingObject not found", 404
 
     # HTML-Template rendern
-    return render_template("game_set.html", guessing_object=guessing_object, game_id=game_id, round=round)
+    return render_template("game_set.html", guessing_object=guessing_object, game_id=game_id, round=round, game_name=game_set['name'])
 
 @app.route('/GameSet<int:game_id>')
 def game_set_start(game_id):
@@ -67,8 +79,3 @@ def game_set_start(game_id):
 
     # Rendern des Templates und Übergabe der GameSets
     return render_template('game_set_play.html', games=games, game_id=game_id,  game_name=game_set['name'])
-
-@app.route('/insert/sample')
-def run_insert_sample():
-    db.insert_sample()
-    return 'Database flushed and populated with some sample data.'
