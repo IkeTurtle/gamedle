@@ -11,10 +11,11 @@
     </style>
     {{ bootstrap.load_css() }}
 </head>
-<body style="padding:64px">
+<body style="padding-top:64px">
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a href="../" class="navbar-brand">Gamedle</a>
+            <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbar-highscore">Highscores</a>
             <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,27 +42,117 @@
                         </ul>
                     </div>
             </div>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbar-highscore">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Highscores</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        
+                                
+                                        <table class="table table-striped w-100">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Score</th>
+                                                </tr>                                                
+                                            </thead>
+                                            <tbody class="table-group-divider">                                           
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                </tr>
+                                                
+                                            </tbody>
+
+                                        </table>
+
+                            
+                        
+                    </div>
+            </div>
         </div>   
     </nav>
 <div class="container h-100">
         <!-- Anzeige von question -->
-    <div class="d-flex h-100 flex-column justify-content-between items-align-center"> 
+    <div class="d-flex h-100 flex-column text-center"> 
         <div class="d-flex flex-column align-items-center justify-content-center">
             <h1 class="row">{{ guessing_object['question'] }}</h1>
         
         <!-- Anzeige von picture -->
             <div class="d-flex justify-content-center align-items-end">
                 <div class="col-md-9">
-                    <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image">
+                    <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image" style="max-width:100%; max-height: 80vh; object-fit: contain;">
                 </div>
             </div>
         </div>
-        <form >
-            <div class="vstack">       
-                <input type="range" id="guess"  value="test" class="form-range">
-                <button class="btn btn-primary">Submit</button>
-            </div>  
+
+        
+        <!-- Skala https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range -->
+        <form action="{{ url_for('game_set', game_id=game_id, round=round) }}" method="post">
+            <div class="vstack">
+
+                        <div class="col text-center mt-2">
+                            <label for="guess"><span id="guessValue" style="font-weight: bold">{{ (guessing_object['scale_top'] + guessing_object['scale_bottom']) // 2 }}</span></label>
+                        </div>
+                    
+                    <div class="d-flex justify-content-between m-2">
+                        <div class="col-1 text-center">
+                            <label style="font-weight: bold">{{guessing_object['scale_top']}}</label>
+                        </div>
+                        <div class="col">
+                            <input type="range" id="guess" name="guess" class="form-range"
+                                min="{{ guessing_object['scale_top'] }}" 
+                                max="{{ guessing_object['scale_bottom'] }}" 
+                                step="1" 
+
+                                oninput="updateValue(this.value)">
+                        </div>
+                        <div class="col-1 text-center">
+                            <label style="font-weight: bold">{{guessing_object['scale_bottom']}}</label>
+                        </div>
+                    </div>
+                    
+
+                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#submitPopUp">Submit</button>
+                <div class="modal fade" data-bs-backdrop="static" id="submitPopUp">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header"><h1>Confirm guess</h1>
+                            
+                            </div>
+                            <div class="modal-body"><h4>Your Guess of <span id="modalGuessValue" style="font-weight: bold"></span> earned you X points!</h4>
+                            <h4>The correct answer was: XYZ</h4>
+                            </div>
+                            <div class="modal-footer">                          
+                                <button type="submit" class="btn btn-primary">Continue</button>                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container text-center m-2">
+                            <label for="guess">Current Score: {{score}}</label>
+                </div>
+
+            </div>
         </form>
+
+        <!-- Dynamische ANzeige der Skala https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
+        <script>
+        
+            var slider = document.getElementById("guess");
+            var output = document.getElementById("guessValue");
+            var modalGuess = document.getElementById("modalGuessValue");
+
+            output.innerHTML = slider.value;
+            modalGuess.innerHTML = slider.value;
+
+            slider.oninput = function() {
+             output.innerHTML = this.value;
+             modalGuess.innerHTML =this.value;
+            }
+        </script>
+
     </div>       
 </div>
     {{ bootstrap.load_js() }}

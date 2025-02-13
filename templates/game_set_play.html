@@ -11,7 +11,7 @@
     </style>
     {{ bootstrap.load_css() }}
 </head>
-<body style="padding:64px">
+<body style="padding-top:64px">
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a href="../" class="navbar-brand">Gamedle</a>
@@ -44,67 +44,49 @@
         
 
 <div class="container h-100">
-            <div class="d-flex h-50 justify-content-evenly align-items-center">                           
-                    <div class="d-flex w-30 flex-column align-items-center">
-                        <div class="border border-dark border-1 rounded-2">
-                            <div class="vstack gap-3 align-items-center">
-                                <div class="p-1 fw-bold">GameSet: {{ game_name }}</div>
-                                    <div class="border border-dark border-1 border-start-0 border-end-0">
-                                    <div class="p-2">In this Gameset you do A</div>
-                                    </div>
-                                <a class="btn btn-primary" href="{{ url_for('game_set', game_id=game_id, round=1) }}" >Play</a> 
-                            </div>
-                        </div>                 
-                    </div>
-                    <div class="d-flex w-30 flex-column align-items-center">
-                        <div class="border border-dark border-1 rounded-2">
-                            <div class="vstack gap-3 align-items-center">
 
-                                <div class="p-1 fw-bold">GameSet: Football</div>
-                                    <div class="border border-dark border-1 border-start-0 border-end-0">
-                                    <div class="p-2">In this Gameset you do B</div>
-                                    </div>
-                                    
-                                <a class="btn btn-primary w-20" href="{{ url_for('game_set', game_id=game_id, round=1) }}" >Play</a>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="d-flex w-30 flex-column align-items-center">
-                        <div class="border border-dark border-1 rounded-2">
-                            <div class="vstack gap-3 align-items-center">
-                                <div class="p-1 fw-bold">GameSet: Wonders</div>
-                                    <div class="border border-dark border-1 border-start-0 border-end-0">
-                                    <div class="p-2">In this Gameset you do C</div>
-                                    </div>
-                                <a class="btn btn-primary" href="{{ url_for('game_set', game_id=game_id, round=1) }}" >Play</a> 
-                            </div>
-                        </div>                 
-                    </div>             
-            </div>     
-            <div class="d-flex h-50 justify-content-evenly align-items-center">  
-                    <div class="d-flex w-50 flex-column align-items-center">
-                        <div class="border border-dark border-1 rounded-2">
-                            <div class="vstack gap-3 align-items-center">
-                                <div class="p-1 fw-bold">GameSet: Human Body</div>
-                                    <div class="border border-dark border-1 border-start-0 border-end-0">
-                                    <div class="p-2">In this Gameset you do X</div>
-                                    </div>
-                                <a class="btn btn-primary" href="{{ url_for('game_set', game_id=game_id, round=1) }}" >Play</a> 
-                            </div>
-                        </div>                 
-                    </div>
-                    <div class="d-flex w-50 flex-column align-items-center">
-                        <div class="border border-dark border-1 rounded-2">
-                            <div class="vstack gap-3 align-items-center">
-                                <div class="p-1 fw-bold">GameSet: Geography</div>
-                                    <div class="border border-dark border-1 border-start-0 border-end-0">
-                                    <div class="p-2">In this Gameset you do Y</div>
-                                    </div>
-                                <a class="btn btn-primary" href="../Gameset5/1" >Play</a> 
-                            </div>
-                        </div>                 
-                    </div>
-            </div>                      
+            <table class="table w-100">
+                        <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Game</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Highscores</th>
+                                    <th scope="col">Start playing</th>
+                                 </tr>                                                
+                         </thead>
+                         <tbody class="table-group-divider">                                                                                       
+                                <tr>
+                                    <td>{{ game_name }}</td>
+                                    <td>Insert Game description</td>
+                                    <td><a class="btn btn-primary" href="../GameSet1/score">Highscores</a></td>
+                                    <td><a class="btn btn-primary" href="{{ url_for('game_set', game_id=game_id, round=1) }}">Play</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Football</td>
+                                    <td>Insert Game description</td>
+                                    <td><a class="btn btn-primary" href="../GameSet2/score">Highscores</a></td>
+                                    <td><a class="btn btn-primary" href="../GameSet2/1">Play</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Wonders</td>
+                                    <td>Insert Game description</td>
+                                    <td><a class="btn btn-primary" href="../GameSet3/score">Highscores</a></td>
+                                    <td><a class="btn btn-primary" href="../GameSet3/1">Play</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Human Body</td>
+                                    <td>Insert Game description</td>
+                                    <td><a class="btn btn-primary" href="../GameSet4/score">Highscores</a></td>
+                                    <td><a class="btn btn-primary" href="../GameSet4/1">Play</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Geography</td>
+                                    <td>Insert Game description</td>
+                                    <td><a class="btn btn-primary" href="../GameSet5/score">Highscores</a></td>
+                                    <td><a class="btn btn-primary" href="../GameSet5/1">Play</a></td>
+                                </tr>
+                                                
+                        </tbody>
             
  </div>      
     {{ bootstrap.load_js() }}
