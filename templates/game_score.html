@@ -50,14 +50,14 @@
                                 <div class="p-1 fw-bold">Current Highscores for GameSet 1</div>
                                     
                                     {% if score_data %}
-                                        <table class="table w-100">
+                                        <table class="table table-striped w-100">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Score</th>
                                                 </tr>                                                
                                             </thead>
-                                            <tbody>
+                                            <tbody class="table-group-divider">
 
                                                  <!-- Schleife für Anzeige der Scores -->
                                                 {% for score in score_data %}
@@ -67,6 +67,13 @@
                                                 </tr>
                                                 {% endfor %}
                                             </tbody>
+                                            <tfoot class="table-group-divider">
+                                                <tr>
+                                                    <td colspan="100%" class="text-end">
+                                                        <a class="btn btn-primary" href="../GameSet1">Show other Games</a>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
 
                                         </table>
                                     {% else %}
