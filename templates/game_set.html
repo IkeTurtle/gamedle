@@ -15,6 +15,7 @@
     <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a href="../" class="navbar-brand">Gamedle</a>
+            <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbar-highscore">Highscores</a>
             <button class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,6 +40,35 @@
                             </li>
 
                         </ul>
+                    </div>
+            </div>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbar-highscore">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Highscores</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        
+                                
+                                        <table class="table table-striped w-100">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Score</th>
+                                                </tr>                                                
+                                            </thead>
+                                            <tbody class="table-group-divider">                                           
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                </tr>
+                                                
+                                            </tbody>
+
+                                        </table>
+
+                            
+                        
                     </div>
             </div>
         </div>   
