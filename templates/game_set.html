@@ -82,7 +82,7 @@
         <!-- Anzeige von picture -->
             <div class="d-flex justify-content-center align-items-end">
                 <div class="col-md-9">
-                    <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image" style="max-width:100%; max-height: 80vh; object-fit: contain;">
+                    <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image" style="max-width:100%; max-height: 55vh; min-height: 55vh; object-fit: contain;">
                 </div>
             </div>
         </div>
@@ -115,14 +115,15 @@
                     
 
                 <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#submitPopUp">Submit</button>
+                
                 <div class="modal fade" data-bs-backdrop="static" id="submitPopUp">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header"><h1>Confirm guess</h1>
                             
                             </div>
-                            <div class="modal-body"><h4>Your Guess of <span id="modalGuessValue" style="font-weight: bold"></span> earned you X points!</h4>
-                            <h4>The correct answer was: XYZ</h4>
+                            <div class="modal-body"><h4>Your Guess of <span id="modalGuessValue" style="font-weight: bold"></span> earned you {{score}} points!</h4>
+                            <h4>The correct answer was: {{ guessing_object['value'] }}</h4>
                             </div>
                             <div class="modal-footer">                          
                                 <button type="submit" class="btn btn-primary">Continue</button>                             
