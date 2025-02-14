@@ -9,10 +9,9 @@ nav_order: 1
 
 {: .no_toc }
 # Goals achieved and missed
+ 
 
-Goals: 
-
-# Achieved:
+## [Achieved]
 :  We managed to create an MVP with:
   - Database connection
   - UI Design
@@ -21,6 +20,6 @@ Goals:
   - Scoring System
 : Working Architecture that can be used on our guessing game and can be expanded upon  to create other games
 
-# Missed:
+## [Missed]
 : Working second game with real examples
 : Admin Login Features
