@@ -11,4 +11,3 @@ nav_order: 2
 
 If you cant download the presentation here you can find it under gamedle/docs
 
-
