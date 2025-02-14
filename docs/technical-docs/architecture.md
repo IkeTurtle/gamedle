@@ -1,7 +1,7 @@
 ---
 title: Architecture
 parent: Technical Docs
-nav_order: 1
+nav_order: 2
 ---
 
 {: .label }

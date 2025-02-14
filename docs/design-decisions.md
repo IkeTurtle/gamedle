@@ -16,7 +16,7 @@ nav_order: 5
 {: toc }
 </details>
 
-## 01: [Bootsrap] [Eike]
+## 01: [Bootstrap] [Eike]
 
 
 ### Problem statement
@@ -97,5 +97,59 @@ We regarded two alternative options:
 | **Know-how** | ✔️ We know how to write SQL | ❌ We must learn ORM concept & SQLAlchemy |
 | **Change DB schema** | ❌ SQL scattered across code | ❔ Good: classes, bad: need Alembic on top |
 | **Switch DB engine** | ❌ Different SQL dialect | ✔️ Abstracts away DB engine |
+
+---
+
+## 01: [Game Set Selection Design] [Eike]
+
+
+### Problem statement
+
+
+- I first designed the GameSet selection screen with different Bootstrap UI elements, which was not easily expandable
+
+- Quang desired a solution that offered easier database expansion of GameSets in the
+
+
+### Decision
+
+- I have decided to use a simple table for a better integration, if we were to use different GameSets
+
+
+
+### Regarded options
+
+#### Option 1: 
+Using Bootstrap UI Elements to Design the Game Set selection would have been more visually appealing, but each different GameSet would have to be added manually in the UI
+
+#### Option 2: 
+Using a table for the Game Sets is not as visually pleasing but gives us an easier method of adding new Game Sets with an integrated UI solution
+
+---
+
+## 01: [Game Set Selection Design] [Eike]
+
+
+### Problem statement
+
+
+- I first designed the GameSet selection screen with different Bootstrap UI elements, which was not easily expandable
+
+- Quang desired a solution that offered easier database expansion of GameSets in the
+
+
+### Decision
+
+- I have decided to use a simple table for a better integration, if we were to use different GameSets
+
+
+
+### Regarded options
+
+#### Option 1: 
+Using Bootstrap UI Elements to Design the Game Set selection would have been more visually appealing, but each different GameSet would have to be added manually in the UI
+
+#### Option 2: 
+Using a table for the Game Sets is not as visually pleasing but gives us an easier method of adding new Game Sets with an integrated UI solution
 
 ---
