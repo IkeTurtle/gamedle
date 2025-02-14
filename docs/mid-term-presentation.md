@@ -8,7 +8,6 @@ nav_order: 2
 
 <details>
 
-<img src="docs/assets/images/gamedle_presentation.pdf">
-        
+<a href="docs/assets/images/gamedle_presentation.pdf" class="image fit"><img src="images/marr_pic.jpg" alt=""></a>
 
 </details>
