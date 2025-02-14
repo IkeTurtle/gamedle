@@ -4,7 +4,7 @@ nav_order: 3
 ---
 
 {: .label }
-[Jane Dane]
+[Eike & Quang]
 
 {: .no_toc }
 # Design decisions
