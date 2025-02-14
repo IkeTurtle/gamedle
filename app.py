@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, url_for, request, session
 from flask_bootstrap import Bootstrap5
+from decimal import Decimal, ROUND_HALF_UP
 import db
 
 app = Flask(__name__)
@@ -70,6 +71,15 @@ def game_set(game_id, round):
     if not guessing_object:
         return "GuessingObject not found", 404
     
+    #Falls man zwischen GameSets in der Runde wechseln will
+    if 'game_id' in session and session['game_id'] != game_id:
+        session.clear()
+        session['score'] = 0
+        session['current_round'] = 1
+
+    session['game_id'] = game_id
+
+
     #Falls ein unlässiges GameObject geöffnet wird
     if round > 10:
         return redirect(f"/GameSet{game_id}/1")
@@ -98,7 +108,9 @@ def game_set(game_id, round):
         answer = guessing_object['value']
 
         error = abs(user_guess - answer) / (max - min)
-        points = 1000 * (1- error) ** 2
+
+        #Verwendung von Decimal Bibliothek zum runden, weil round(points) nicht funktioniert, weil round eine variabel ist, Quelle: https://docs.python.org/3/library/decimal.html
+        points = Decimal(1000 * (1 - error) ** 2).quantize(Decimal("1"), rounding=ROUND_HALF_UP)
 
         if session['current_round'] < 10:
 
