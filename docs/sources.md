@@ -4,7 +4,7 @@ nav_order: 8
 ---
 
 {: .label }
-[Eike & Quang]
+Eike & Quang
 
 ## Sources
 
