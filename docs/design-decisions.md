@@ -143,7 +143,7 @@ To solve this, we performed the calculation again separately in the JavaScript c
   }
 </script>
 ```
-
+(cf. ChatGPT)
 
 
 
