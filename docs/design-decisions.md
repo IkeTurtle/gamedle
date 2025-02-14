@@ -110,7 +110,10 @@ One of the main issues we faced was that users were able to skip rounds, switch 
 
 ### Implementation
 
+As already in Architechture described, we did the implementation like this:
+
 Enforcing Sequential Rounds: We ensured that `session['current_round']` always matches the requested round.
+
 Preventing GameSet Switching: If a user switches to another GameSet during an active game, the session is cleared, forcing them to start from round 1 with no points.
 
 ## 06: Points display in PopUp [Quang]
