@@ -120,7 +120,7 @@ As mentioned earlier, with the `request.method == "POST"` the user input can be 
 ```
 (cf. https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request)
 
-## Calculation of the Points
+## Calculation of the Points and Score
 
 We asked ChatGPT to generate a formula for calculating the points after each round, which we implemnted like this:
 
@@ -136,9 +136,41 @@ points = Decimal(1000 * (1 - error) ** 2).quantize(Decimal("1"), rounding=ROUND_
 
 We had to use the `Decimal` libary to round the points. The standard `round()` function could not be used in this case, as `round` was already a defined variable, as seen earlier.
 
-## Calculation of the Score
+To properly adding up the points to have a accumulated score, we added the achieved `points` to `session['score']`.
 
-To properly adding up the points to have a accumulated score
+```ruby
+session['score'] += int(points)
+```
+
+## Ensuring Proper Game Progression
+
+### Correct Redirecting
+
+To ensure that the user is redirected after each round, we implemented an automatic redirection mechanism based on the current round number.
+- For rounds less than 10, the game simply adds session['current_round'] by 1 and redirects the user to the next round.
+- When the user reaches round 10, they are redirected to the /score page, where they can submit their score to the highscore list.
+
+```ruby
+if session['current_round'] < 10:
+        if user_guess is not None:
+                session['current_round'] += 1   
+                return redirect(f"/GameSet{game_id}/{session['current_round']}")
+
+if session['current_round'] == 10:
+        session['score'] += int(points)
+        return redirect(f"/GameSet{game_id}/score")
+```
+### Non-Skippable Round
+
+One very relavant aspect is that the user should not be able to skip any rounds and must play them in the correct order. Therefore, we ensured that the `['current_round']` always matches the `round` variable. If they are not equivalent, the user will be automatically redirected to the correct round.
+
+```ruby
+if round != session['current_round']:
+        return redirect(f"/GameSet{game_id}/{session['current_round']}")
+```
+### Non-Switching between GameSets
+
+
 
 
 {: .attention }
