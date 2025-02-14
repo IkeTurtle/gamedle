@@ -49,21 +49,34 @@
                     </div>
                     <div class="offcanvas-body">
                         
-                                
+
+                                    {% if score_data %}
                                         <table class="table table-striped w-100">
                                             <thead class="thead-dark">
                                                 <tr>
+                                                    <th> </th>
                                                     <th>Name</th>
                                                     <th>Score</th>
                                                 </tr>                                                
                                             </thead>
-                                            <tbody class="table-group-divider">                                           
+                                            <tbody class="table-group-divider">     
+
+                                                <!-- Schleife für Anzeige der Scores -->                                      
+                                                {% for score in score_data %}
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>2</td>
+                                                    <td>{{ loop.index }}</td>
+                                                    <td>{{ score['username'] }}</td>
+                                                    <td>{{ score['points'] }}</td>
                                                 </tr>
+                                                {% endfor %}
                                                 
                                             </tbody>
+                                    
+                                    {% else %}
+                                         <p>No scores available for this game.</p>
+
+                                    {% endif %}
+                                    
 
                                         </table>
 
@@ -82,7 +95,7 @@
         <!-- Anzeige von picture -->
             <div class="d-flex justify-content-center align-items-end">
                 <div class="col-md-9">
-                    <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image" style="max-width:100%; max-height: 80vh; object-fit: contain;">
+                    <img src="{{ url_for('static', filename=guessing_object['picture']) }}" class="img-fluid" alt="Responsive image" style="max-width:100%; max-height: 55vh; min-height: 55vh; object-fit: contain;">
                 </div>
             </div>
         </div>
@@ -92,13 +105,13 @@
         <form action="{{ url_for('game_set', game_id=game_id, round=round) }}" method="post">
             <div class="vstack">
 
-                        <div class="col text-center mt-2">
-                            <label for="guess"><span id="guessValue" style="font-weight: bold">{{ (guessing_object['scale_top'] + guessing_object['scale_bottom']) // 2 }}</span></label>
-                        </div>
+                    <div class="col text-center mt-2">
+                        <label for="guess"><span id="guessValue" style="font-weight: bold">{{ "{:,.0f}".format((guessing_object['scale_top'] + guessing_object['scale_bottom']) // 2).replace(',', '.') }}</span></label>
+                    </div>
                     
                     <div class="d-flex justify-content-between m-2">
                         <div class="col-1 text-center">
-                            <label style="font-weight: bold">{{guessing_object['scale_top']}}</label>
+                            <label style="font-weight: bold">{{guessing_object['scale_top'] | int}}</label>
                         </div>
                         <div class="col">
                             <input type="range" id="guess" name="guess" class="form-range"
@@ -109,20 +122,24 @@
                                 oninput="updateValue(this.value)">
                         </div>
                         <div class="col-1 text-center">
-                            <label style="font-weight: bold">{{guessing_object['scale_bottom']}}</label>
+                            <label style="font-weight: bold">{{guessing_object['scale_bottom'] | int}}</label>
                         </div>
                     </div>
                     
+                    
 
                 <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#submitPopUp">Submit</button>
+                
                 <div class="modal fade" data-bs-backdrop="static" id="submitPopUp">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-header"><h1>Confirm guess</h1>
-                            
+                            <div class="modal-header"><h1>Earned Points: <span id="earnedPoints" style="font-weight: bold">0</span></h1>
+                    
                             </div>
-                            <div class="modal-body"><h4>Your Guess of <span id="modalGuessValue" style="font-weight: bold"></span> earned you X points!</h4>
-                            <h4>The correct answer was: XYZ</h4>
+                            <div class="modal-body">
+                                <h4>Your Guess <span id="modalGuessValue" style="font-weight: bold"></span></h4>
+                                <h4>Correct answer: <b>{{ guessing_object['value'] | int}}</b></h4>
+
                             </div>
                             <div class="modal-footer">                          
                                 <button type="submit" class="btn btn-primary">Continue</button>                             
@@ -131,15 +148,17 @@
                     </div>
                 </div>
                 <div class="container text-center m-2">
-                            <label for="guess">Current Score: {{score}}</label>
+                            <label for="guess" class="fw-bold display-6" >Current Score: {{score}}</label>
                 </div>
 
             </div>
         </form>
 
+
+
         <!-- Dynamische ANzeige der Skala https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
         <script>
-        
+
             var slider = document.getElementById("guess");
             var output = document.getElementById("guessValue");
             var modalGuess = document.getElementById("modalGuessValue");
@@ -147,11 +166,37 @@
             output.innerHTML = slider.value;
             modalGuess.innerHTML = slider.value;
 
+                // Berechnung des Scores innerhalb der HTML für die Anzeige im PopUp für den Standardwert, Quelle: ChatGPT
+                var max = Number("{{ guessing_object['scale_bottom'] | float }}");
+                var min = Number("{{ guessing_object['scale_top'] | float }}");
+                var answer = Number("{{ guessing_object['value'] | float }}");
+                var userGuess =  Math.floor((min + max) / 2);
+
+                var error = Math.abs(userGuess - answer) / (max - min);
+                points = Math.round(1000 * (1 - error) ** 2);
+
+                document.getElementById("earnedPoints").innerHTML = points;
+
+
             slider.oninput = function() {
-             output.innerHTML = this.value;
-             modalGuess.innerHTML =this.value;
+                
+                output.innerHTML = this.value;
+                modalGuess.innerHTML =this.value;
+
+                // Berechnung des Scores innerhalb der HTML für die Anzeige im PopUp für den Sliderwert
+                userGuess = Number(slider.value);
+                error = Math.abs(userGuess - answer) / (max - min);
+                new_points = Math.round(1000 * (1 - error) ** 2);
+
+                document.getElementById("earnedPoints").innerHTML = new_points;
+
             }
+        
         </script>
+
+        
+
+       
 
     </div>       
 </div>

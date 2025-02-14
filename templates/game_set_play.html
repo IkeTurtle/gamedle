@@ -54,37 +54,18 @@
                                     <th scope="col">Start playing</th>
                                  </tr>                                                
                          </thead>
+
+                         <!-- Schleife für dynamische Anzeige der GameSets -->
                          <tbody class="table-group-divider">                                                                                       
-                                <tr>
-                                    <td>{{ game_name }}</td>
-                                    <td>Insert Game description</td>
-                                    <td><a class="btn btn-primary" href="../GameSet1/score">Highscores</a></td>
-                                    <td><a class="btn btn-primary" href="{{ url_for('game_set', game_id=game_id, round=1) }}">Play</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Football</td>
-                                    <td>Insert Game description</td>
-                                    <td><a class="btn btn-primary" href="../GameSet2/score">Highscores</a></td>
-                                    <td><a class="btn btn-primary" href="../GameSet2/1">Play</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Wonders</td>
-                                    <td>Insert Game description</td>
-                                    <td><a class="btn btn-primary" href="../GameSet3/score">Highscores</a></td>
-                                    <td><a class="btn btn-primary" href="../GameSet3/1">Play</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Human Body</td>
-                                    <td>Insert Game description</td>
-                                    <td><a class="btn btn-primary" href="../GameSet4/score">Highscores</a></td>
-                                    <td><a class="btn btn-primary" href="../GameSet4/1">Play</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Geography</td>
-                                    <td>Insert Game description</td>
-                                    <td><a class="btn btn-primary" href="../GameSet5/score">Highscores</a></td>
-                                    <td><a class="btn btn-primary" href="../GameSet5/1">Play</a></td>
-                                </tr>
+                                
+                            {% for game in games %}
+                            <tr>
+                                <td>{{ game['name'] }}</td>
+                                <td>Insert Game description</td>
+                                <td><a class="btn btn-primary" href="{{ url_for('scorelist', game_id=game['id']) }}">Highscores</a></td>
+                                <td><a class="btn btn-primary" href="{{ url_for('game_set', game_id=game['id'], round=1) }}">Play</a></td>
+                            </tr>
+                            {% endfor %}
                                                 
                         </tbody>
             
