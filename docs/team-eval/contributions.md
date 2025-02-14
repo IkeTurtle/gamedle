@@ -28,6 +28,6 @@ Contributions
 ## [Quang Anh Nguyen]
 
 Contributions
-: Diam nonumy eirmod
-: Tempor invidunt ut labore
-: ...
+: Data structure
+: Page routing
+: Technical architecture
