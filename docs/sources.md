@@ -24,6 +24,7 @@ StackOverflow: https://stackoverflow.com/questions/10434599/get-the-data-receive
 DocsPython: https://docs.python.org/3/library/decimal.html [last opened: 14.02.2025]
 
 ChatGPT Prompts:
-
+docs/assets/images/Chat GPT Estimation Score Formula.pdf
+docs/assets/images/ChatGPT scoring calc.pdf
 
 
