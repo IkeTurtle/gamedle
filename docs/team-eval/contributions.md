@@ -5,7 +5,7 @@ nav_order: 4
 ---
 
 {: .label }
-[Jane Dane]
+[Eike & Quang]
 
 {: .no_toc }
 # Summary of individual contributions
@@ -17,14 +17,15 @@ nav_order: 4
 {: toc }
 </details>
 
-## [Jane Dane]
+## [Eike Gebing]
 
 Contributions
-: Lorem ipsum dolor
-: Consetetur sadipscing elitr
-: ...
+: Creation of Wireframes
+: Personas
+: UI Design with Bootstrap
+: User-Experience Design
 
-## [Joe Doe]
+## [Quang Anh Nguyen]
 
 Contributions
 : Diam nonumy eirmod
