@@ -16,7 +16,7 @@ nav_order: 5
 {: toc }
 </details>
 
-## 01: [Bootstrap] [Eike]
+## 01: Bootstrap [Eike]
 
 
 ### Problem statement
@@ -49,58 +49,33 @@ Bootstrap had to be adapted to fit our existing code, but we decided to adapt it
 
 ---
 
-## [Example, delete this section] 01: How to access the database - SQL or SQLAlchemy 
-
-### Meta
-
-Status
-: Work in progress - **Decided** - Obsolete
-
-Updated
-: 30-Jun-2024
-
-### Problem statement
-
-Should we perform database CRUD (create, read, update, delete) operations by writing plain SQL or by using SQLAlchemy as object-relational mapper?
-
-Our web application is written in Python with Flask and connects to an SQLite database. To complete the current project, this setup is sufficient.
-
-We intend to scale up the application later on, since we see substantial business value in it.
-
-
-
-Therefore, we will likely:
-Therefore, we will likely:
-Therefore, we will likely:
-
-+ Change the database schema multiple times along the way, and
-+ Switch to a more capable database system at some point.
+## 02: Use SQLite or MySQL [Quang]
 
 ### Decision
 
-We stick with plain SQL.
+SQLite was chosen as the database solution over MySQL.
 
-Our team still has to come to grips with various technologies new to us, like Python and CSS. Adding another element to our stack will slow us down at the moment.
+### Reasoning
 
-Also, it is likely we will completely re-write the app after MVP validation. This will create the opportunity to revise tech choices in roughly 4-6 months from now.
-*Decision was taken by:* github.com/joe, github.com/jane, github.com/maxi
+SQLite was chosen because it was part of the lecture, making it a familiar option. It is also lightweight, easy to set up, and does not require a separate server, making it a convenient choice for small projects.
 
-### Regarded options
+### Implementation
 
-We regarded two alternative options:
+The database connection is established in the `get_db` function in `app.py`, while the tables are created in `create_tables.sql` and `insert_table.sql`. To initialize the database, you need to run `flask init-db`.
 
-+ Plain SQL
-+ SQLAlchemy
+## 03: SQL or SQLAlchemy [Quang]
 
-| Criterion | Plain SQL | SQLAlchemy |
-| --- | --- | --- |
-| **Know-how** | ✔️ We know how to write SQL | ❌ We must learn ORM concept & SQLAlchemy |
-| **Change DB schema** | ❌ SQL scattered across code | ❔ Good: classes, bad: need Alembic on top |
-| **Switch DB engine** | ❌ Different SQL dialect | ✔️ Abstracts away DB engine |
+### Decision
+
+SQL was chosen MySQL.
+
+### Reasoning
+
+SQL was chosen over MySQL because we started working with SQL in our course, so it felt more familiar to us. Also, we found SQL easier to understand and implement, which made the integration into our project smoother.
 
 ---
 
-## 01: [Game Set Selection Design] [Eike]
+## 04: Game Set Selection Design [Eike]
 
 
 ### Problem statement
@@ -127,29 +102,49 @@ Using a table for the Game Sets is not as visually pleasing but gives us an easi
 
 ---
 
-## 01: [Game Set Selection Design] [Eike]
-
+## 05: Ensuring Proper Game Progression [Quang]
 
 ### Problem statement
 
+One of the main issues we faced was that users were able to skip rounds, switch between different GameSets with an active session, and not play the rounds in the correct order.
 
-- I first designed the GameSet selection screen with different Bootstrap UI elements, which was not easily expandable
+### Implementation
 
-- Quang desired a solution that offered easier database expansion of GameSets in the
+Enforcing Sequential Rounds: We ensured that `session['current_round']` always matches the requested round.
+Preventing GameSet Switching: If a user switches to another GameSet during an active game, the session is cleared, forcing them to start from round 1 with no points.
+
+## 06: Points display in PopUp [Quang]
+
+### Problem statement
+
+One issue was displaying the calculated points in the pop-up, as the calculations were only triggered by the Continue button and not by the Submit button.
+
+### Implementation
+
+To solve this, we performed the calculation again separately in the JavaScript code within the `game_set.html`, ensuring that the points were shown immediately in the pop-up.
+
+```ruby
+<script>
+  var max = Number("{{ guessing_object['scale_bottom'] | float }}");
+  var min = Number("{{ guessing_object['scale_top'] | float }}");
+  var answer = Number("{{ guessing_object['value'] | float }}");
+  var userGuess =  Math.floor((min + max) / 2);
+
+  var error = Math.abs(userGuess - answer) / (max - min);
+  points = Math.round(1000 * (1 - error) ** 2);
+
+  document.getElementById("earnedPoints").innerHTML = points;
+
+  slider.oninput = function() {
+    userGuess = Number(slider.value);
+    error = Math.abs(userGuess - answer) / (max - min);
+    new_points = Math.round(1000 * (1 - error) ** 2);
+    document.getElementById("earnedPoints").innerHTML = new_points;
+  }
+</script>
+```
 
 
-### Decision
-
-- I have decided to use a simple table for a better integration, if we were to use different GameSets
 
 
 
-### Regarded options
-
-#### Option 1: 
-Using Bootstrap UI Elements to Design the Game Set selection would have been more visually appealing, but each different GameSet would have to be added manually in the UI
-
-#### Option 2: 
-Using a table for the Game Sets is not as visually pleasing but gives us an easier method of adding new Game Sets with an integrated UI solution
-
----
