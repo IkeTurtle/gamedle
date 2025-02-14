@@ -33,16 +33,16 @@ Our group dynamic pushed me to try and make a product, which we could be proud o
 
 We both could have started on certain tasks a bit earlier. While we certainly didn't start too late, some features we thought would be easier to implement took us longer than we expected and forced us to make cuts on other parts of our app.
 
-## [Quang Anh Nguyen] - review 1
+## [Quang Anh Nguyen] - review 2
 
 ### My observation (Wahrnehmung)
 
-[A specific observation, regarding know-how, effectiveness, team work or from another relevant area]
+Working on this project definitely provided with me certain challenges I was not expecting at first. I had previous knowledge with databases that I had gathered in our previous database course which I pretty confident in. Regardless I found the these hurdles and obstacles that I had to overcome together with Eike as a valuable learning experience. I managed to acquire new knowledge in setting up our own Web-App. Eike managed to handle the the Design well while I was able to focus on making sure that the Backend archtitecture worked properly.
 
 ### Effect on me (Wirkung)
 
-[What positive or negative effect did this observation have on the reviewer?]
+As already mentioned I am taking alot of technical knowledge with me into my future. Our teamwork showed that a clear division of labor is useful and can bring decent outcomes. I was able to focus on my tasks while Eike and me made sure to stay on track in order to deliver practical results.
 
 ### Tip for the future (Wunsch)
 
-[What should be changed or strengthened for the point of view of the reviewer?]
+I would like to develop projects like this a bit more in depth and see what the other end of development at the frontend side looks like.
