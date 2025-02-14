@@ -5,19 +5,12 @@ nav_order: 2
 ---
 
 {: .label }
-Quang Anh Nguyen
+Quang 
 
 {: .no_toc }
 # Data model
 
-<details open markdown="block">
-{: .text-delta }
-<summary>Table of contents</summary>
-+ ToC
-{: toc }
-</details>
-
-![First Data Model](../assets/images/datamodel_1.png)
+![First Data Model](../assets/images/datamodel_2.png)
 
 The database should include three tables for managing the data: <br> **GuessingObject, GameSet, Score**
 
@@ -41,6 +34,7 @@ The GameSet table contains 10 items from the GuessingObject table, as each game 
 | Attribute | Type | Description |
 | --- | --- | --- |
 | `id` | Integer | primary key |
+| `name` | String | name of GameSet |
 | `object_1` | Integer | foreign key → GuessingObject.id <br> guessing object one |
 | `object_2` | Integer | foreign key → GuessingObject.id <br> guessing object two |
 | ... |
