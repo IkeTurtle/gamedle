@@ -63,7 +63,13 @@ To ensure that the rounds are connected and not just independent links, we used 
 from flask import Flask, render_template, redirect, url_for, request, session
 
 app.config['SESSION_PERMANENT'] = False
+
+if 'score' not in session:
+        session['score'] = 0
+        session['current_round'] = 1
 ```
+The  `session['score']` and `session['current_round']` are essential for various functionalities, which will be explained in detail later.
+
 (cf. https://flask-session.readthedocs.io/en/latest/usage.html)
 
 With Flask session, we were able to:
@@ -104,6 +110,35 @@ Furthermore, we implemented a way to dynamically display the user's selected val
 ```
 (cf. https://www.w3schools.com/howto/howto_js_rangeslider.asp)
 
+## Retrieving the user-input
+
+As mentioned earlier, with the `request.method == "POST"` the user input can be retrieved and used to do all necessary calculations for the points and score.
+
+```ruby
+ if request.method == "POST":
+        user_guess = request.form.get("guess", type=float)  
+```
+(cf. https://stackoverflow.com/questions/10434599/get-the-data-received-in-a-flask-request)
+
+## Calculation of the Points
+
+We asked ChatGPT to generate a formula for calculating the points after each round, which we implemnted like this:
+
+```ruby
+max = guessing_object['scale_bottom'] 
+min = guessing_object['scale_top'] 
+answer = guessing_object['value']
+
+error = abs(user_guess - answer) / (max - min)
+points = Decimal(1000 * (1 - error) ** 2).quantize(Decimal("1"), rounding=ROUND_HALF_UP)
+```
+(cf. ChatGPT & https://docs.python.org/3/library/decimal.html)
+
+We had to use the `Decimal` libary to round the points. The standard `round()` function could not be used in this case, as `round` was already a defined variable, as seen earlier.
+
+## Calculation of the Score
+
+To properly adding up the points to have a accumulated score
 
 
 {: .attention }
