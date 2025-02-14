@@ -4,7 +4,7 @@ nav_order: 5
 ---
 
 {: .label }
-[Eike & Quang]
+Eike & Quang
 
 {: .no_toc }
 # Design decisions
