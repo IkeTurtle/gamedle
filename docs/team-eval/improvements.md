@@ -5,14 +5,11 @@ nav_order: 2
 ---
 
 {: .label }
-[Jane Dane]
+[Eike]
 
 {: .no_toc }
 # How we would improve next time
 
-<details open markdown="block">
-{: .text-delta }
-<summary>Table of contents</summary>
-+ ToC
-{: toc }
-</details>
+- Better time management
+- Better evaluation of how long certain features take to implement
+- Start working with git branches earlier to minimize direct communication needed between versions
