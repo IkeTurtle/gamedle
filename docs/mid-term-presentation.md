@@ -6,9 +6,9 @@ nav_order: 3
 
 ## Presentation
 
-[Download PDF](/assets/images/gamedle_presentation.pdf)
+[Download PDF](docs/assets/images/gamedle_presentation.pdf)
 
-<iframe src="/assets/images/gamedle_presentation.pdf" width="100%" height="200px">Download PDF</iframe>
+<iframe src="docs/assets/images/gamedle_presentation.pdf" width="100%" height="200px">Download PDF</iframe>
 
 If you cant download the presentation here you can find it under gamedle/docs
 
