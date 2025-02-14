@@ -16,27 +16,36 @@ nav_order: 3
 {: toc }
 </details>
 
-## 01: [Title]
+## 01: [Bootsrap] [Eike]
 
-### Meta
-
-Status
-: **Work in progress** - Decided - Obsolete
-
-Updated
-: DD-MMM-YYYY
 
 ### Problem statement
 
-[Describe the problem to be solved or the goal to be achieved. Include relevant context information.]
+
+- Basic HTML & CSS is often very labour-intensive and repetitive
+
+- Making a webpage look professional with core HTML & CSS is a challenging endeavour
+
+- The wireframes created with Figma should be adequately recreated within our code
 
 ### Decision
 
-[Describe **which** design decision was taken for **what reason** and by **whom**.]
+- Bootstrap almost completely replaces any CSS coding, freeing up a lot of time for other aspects of our project
+
+- Bootstrap is visually appealing
+
+- Bootstrap eliminates many of the annoying parts of formatting within html/css
+
+- Elements of Bootstrap can be mockuped with Figma and quickly applied to our own code
+
 
 ### Regarded options
 
-[Describe any possible design decision that will solve the problem. Assess these options, e.g., via a simple pro/con list.]
+#### Option 1: 
+Basic HTML & CSS was used at the start but the effort to create visually appealing layouts was too high
+
+#### Option 2: 
+Bootstrap had to be adapted to fit our existing code, but we decided to adapt it for the ease of use scalability and optics
 
 ---
 
