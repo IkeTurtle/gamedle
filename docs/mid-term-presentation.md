@@ -3,7 +3,7 @@ nav_order: 2
 ---
 
 
-## Gamedle
+## Presentation
 
 <object data="docs/assets/images/gamedle_presentation.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="docs/assets/images/gamedle_presentation.pdf">
