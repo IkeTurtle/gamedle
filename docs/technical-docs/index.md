@@ -5,6 +5,6 @@ nav_order: 4
 ---
 
 {: .label }
-[Quang Anh Nguyen]
+Quang
 
 # Technical documentation
