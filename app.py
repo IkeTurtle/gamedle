@@ -63,6 +63,8 @@ def game_set(game_id, round):
         (object_id,)
     ).fetchone()
 
+    # Abfrage der Scores
+    score_data = db_con.execute("SELECT username, points FROM Score WHERE game_id = ? ORDER BY points DESC", (game_id,)).fetchall()
 
 
     if not guessing_object:
@@ -127,7 +129,7 @@ def game_set(game_id, round):
 
             
     # HTML-Template rendern
-    return render_template("game_set.html", guessing_object=guessing_object, game_id=game_id, game_name=game_set['name'], score=session['score'], round=session['current_round'])
+    return render_template("game_set.html", guessing_object=guessing_object, game_id=game_id, game_name=game_set['name'], score=session['score'], round=session['current_round'], score_data=score_data)
 
 
 @app.route('/GameSet<int:game_id>/score',methods=['GET', 'POST'])
