@@ -5,7 +5,7 @@ nav_order: 2
 ---
 
 {: .label }
-Quang Anh
+Quang
 
 {: .no_toc }
 # Architecture
