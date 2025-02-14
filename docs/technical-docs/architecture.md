@@ -5,7 +5,7 @@ nav_order: 1
 ---
 
 {: .label }
-[Quang Anh Nguyen]
+Quang Anh
 
 {: .no_toc }
 # Architecture
